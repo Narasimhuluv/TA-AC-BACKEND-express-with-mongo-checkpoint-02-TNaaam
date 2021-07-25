@@ -43,7 +43,7 @@ Create an event management website using express & mongoDB where users visiting 
 
   - list all the events
   - should contain a side bar listing all categories
-  - a filter where user can filter events based on
+  - gg
     - category
     - latest/oldest based on start_date of event
     - location

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header class="p-8 border-2">
+        <div class="flex justify-between">
+          <a class="text-xl border-2 px-4 py-1 rounded-xl bg-gray-600 text-white" href="/events">List of Events</a>
+          <h2 class="text-3xl">Event Store</h2>
+          <a class="text-xl border-2 px-4 py-1 bg-green-500 text-white rounded-xl" href="/events/new">Add event</a>
+        </div>
+    </header>
+    <main>
+        <section>
+            <% events.forEach(event => { %>
+                <h2 class="text-xl "> Title : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.title%></strong></h2>
+                <h2 class="text-xl "> summery : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.summery%></strong></h2>
+                <h3 class="text-xl "> host : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.host%></strong></h3>
+                <h4 class="text-xl "> start_date : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.start_date%></strong></h4>
+                <h5 class="text-xl "> end_date : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.end_date%></strong></h5>
+                <h6 class="text-xl "> Category : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.event_category%></strong></h6>
+                <h6 class="text-xl "> location : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.location%></strong></h6>
+                <p class="text-xl flex items-center mt-6 "><img class="w-1/12" src="https://www.tubefilter.com/wp-content/uploads/2019/04/instagram-hiding-likes-button-remove.jpg" alt=""> :  <strong class="text-green-800 text-3xl font-semibold"> <%= events.likes ? events.likes : 0%></strong></
+            <% }) %> 
+        </section>
+
+
+
+
+    
+
+</body>
+</html>
