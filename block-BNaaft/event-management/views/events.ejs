@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header class="p-8 border-2">
+        <div class="flex justify-between">
+          <a class="text-xl border-2 px-4 py-1 rounded-xl bg-gray-600 text-white" href="/events">List of Events</a>
+          <h2 class="text-3xl">Event Store</h2>
+          <a class="text-xl border-2 px-4 py-1 bg-green-500 text-white rounded-xl" href="/events/new">Add event</a>
+        </div>
+    </header>
+
+    <main class="flex justify-between">
+        <section class="m-10">
+            <h2 class="text-xl text-blue-500">List of Events</h2>
+            <div class="each">
+                <% events.forEach((event) => {%>
+                    <a href="/events/<%=event._id%>">
+                        <h2 class="text-2xl text-green-400 font-extrabold my-5"><%=event.title%> . . . </h2>
+                    </a>
+                <%})%>
+            </div>
+        </section>
+
+        <div class="border-2 h-screen w-6/12">
+            <section class="m-10">
+                <div class="">
+                    <h2 class="text-blue-500">Category ..... </h2>
+                    <% allCategories.forEach(category => { %>
+                        <a href="/categories/<%= category  %> ">
+                            <button class="border-2 py-1 px-4 mt-4 text-green-500"><%= category  %></button>
+                        </a>
+                    <% }) %>
+                </div>
+            </section>
+    
+           <section class="m-10">
+               <div class="location">
+                <h2 class="text-blue-500">Location ..... </h2>
+                <% allLocations.forEach(location=> { %>
+                    <a href="/location/<%= location  %> ">
+                        <button class="border-2 py-1 px-4 mt-4 text-green-500"><%= location  %></button>
+                    </a>
+                <% }) %>
+               </div>
+           </section>
+    
+            <section class="m-10">
+                <div class="sort_date">
+                    <h2 class="text-blue-500">Sorting Date  ..... </h2>
+                   <div class="mt-4">
+                        <a href="/date/ascend">
+                            <button class="border-2 py-1 px-4 text-green-500">Ascend</button>
+                        </a>
+                
+                        <a href="/date/descend">
+                            <button class="border-2 py-1 px-4 text-green-500">Descend</button>
+                        </a>
+                   </div>
+                </div>
+            </section>
+    
+        </div>
+    </main>
+</body>
+</html>
