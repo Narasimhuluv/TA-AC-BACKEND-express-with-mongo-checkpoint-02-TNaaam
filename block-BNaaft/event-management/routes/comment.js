@@ -11,10 +11,11 @@ router.get('/:id/edit', (req,res) => {
     })
 })
 
-router.post('/:id', (req,res,next) => {
+router.post('/:id/edit', (req,res,next) => {
     let id = req.params.id;
     Comment.findByIdAndUpdate(id,req.body,(err,updateComment) => {
         if(err) return next(err)
+        console.log(updateComment);
         res.redirect('/events/' + updateComment.eventId)
     })
 })
@@ -27,5 +28,29 @@ router.get('/:id/delete', (req,res,next) => {
     })
 })
 
+
+
+// likes and dislikes 
+
+router.get('/:id/likes/inc', function (req, res, next) {
+    let remarksId = req.params.id;
+    Comment.findByIdAndUpdate(remarksId, { $inc: { likes: 1 } }, (err, remark) => {
+      if (err) return next(err);
+      res.redirect('/events/' + remark.eventId);
+    });
+});
+  
+router.get('/:id/likes/dec', function (req, res, next) {
+    let remarksId = req.params.id;
+    Comment.findByIdAndUpdate(
+      remarksId,
+      { $inc: { likes: -1 } },
+      (err, remark) => {
+        if (err) return next(err);
+  
+        res.redirect('/events/' + remark.eventId);
+      }
+    );
+});
 
 module.exports = router

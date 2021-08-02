@@ -16,53 +16,12 @@
         </div>
     </header>
     <main>
-        <section>
+        <section class="m-10 text-xl font-bold uppercase ">
             <% events.forEach(event => { %>
-                <h2 class="text-xl "> Title : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.title%></strong></h2>
-                <h2 class="text-xl "> summery : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.summery%></strong></h2>
-                <h3 class="text-xl "> host : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.host%></strong></h3>
-                <h4 class="text-xl "> start_date : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.start_date%></strong></h4>
-                <h5 class="text-xl "> end_date : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.end_date%></strong></h5>
-                <h6 class="text-xl "> Category : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.event_category%></strong></h6>
-                <h6 class="text-xl "> location : <strong class="text-green-800 font-semibold ml-5 mt-3 inline-block"><%=event.location%></strong></h6>
-                <p class="text-xl flex items-center mt-6 "><img class="w-1/12" src="https://www.tubefilter.com/wp-content/uploads/2019/04/instagram-hiding-likes-button-remove.jpg" alt=""> :  <strong class="text-green-800 text-3xl font-semibold"> <%= events.likes ? events.likes : 0%></strong></
+                <a href="/events/<%=event._id%>"><h2 class="mt-5"><%= event.event_category  %>. . . .</h2></a>
             <% }) %> 
         </section>
 
-
-
-
-         <!-- likes increament and decreament -->
-         <section class="flex items-center mt-5">
-            <a class="m-3 text-3xl text-green-600" href="/events/<%=events._id%>/likes">
-                <button><i class="fas fa-thumbs-up"></i></button>
-            </a>
-
-            <a class="m-3 text-3xl text-red-600" href="/events/<%=events._id%>/dislikes">
-                <button><i class="fas fa-thumbs-down"></i></button>
-            </a>
-        </section>
-
-        <!-- update and delete -->
-
-        <section>
-            <a href="/events/<%=events._id%>/edit">
-                <button class="border-2 py-1 px-4 rounded-md bg-green-400 text-white mt-5">Remark</button>
-            </a>
-
-            <a href="/events/<%=events._id%>/delete">
-                <button class="border-2 py-1 px-4 rounded-md text-white bg-red-500 mt-5">Delete</button>
-            </a>
-        </section>
-
-        <section>
-            <div class="mt-5">
-                <form action="/events/<%=events._id%>/comments" method="POST">
-                    <textarea class="border-2 p-2" name="comment" id="" cols="40" rows="5" placeholder="Message . . . . "></textarea>
-                    <input type="submit" class="block border-2 px-4 py-1 bg-blue-500 text-white rounded-md">
-                </form>
-            </div>
-        </section>
 
 </body>
 </html>
