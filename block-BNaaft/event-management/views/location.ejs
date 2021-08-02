@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header class="p-8 border-2">
+        <div class="flex justify-between">
+          <a class="text-xl border-2 px-4 py-1 rounded-xl bg-gray-600 text-white" href="/events">List of Events</a>
+          <h2 class="text-3xl">Event Store</h2>
+          <a class="text-xl border-2 px-4 py-1 bg-green-500 text-white rounded-xl" href="/events/new">Add event</a>
+        </div>
+    </header>
+    <main>
+        <section class="m-10 text-xl font-bold uppercase ">
+            <% events.forEach(event => { %>
+                <a href="/events/<%=event._id%>"><h2 class="mt-5"><%= event.event_category  %>. . . .</h2></a>
+            <% }) %> 
+        </section>
+
+
+</body>
+</html>
