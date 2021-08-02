@@ -40,7 +40,6 @@ router.get('/', (req,res,next) => {
         }
       }
     })
-
     let allLocations = [];
     event.filter(elm => {
       if(!allLocations.includes(elm.location)) {
@@ -122,12 +121,15 @@ router.get('/:id/dislikes', (req,res,next) => {
 
 //add Comments
 
-router.post('/:id/comments', (req,res,next) => {
+router.post('/:id/comments/new', (req,res,next) => {
   let id = req.params.id;
-  Comment.create(req.body,(err,comment) => {
+  let data = req.body;
+  data.eventId = id;
+  Comment.create(data,(err,comment) => {
     if(err) return next(err);
     Event.findByIdAndUpdate(id,{$push : {comments : comment._id}}, (err,updateBook) => {
       if(err) return next(err)
+      // updateBook.eventId = comment.id
       res.redirect('/events/' + id)
     })
   })

@@ -19,7 +19,7 @@
 
     <section class="h-screen">
         <div class="mt-5 flex justify-center items-center">
-            <form action="/comments/<%=comments._id%>" method="POST">
+            <form action="/comments/<%=comments._id%>/edit" method="POST">
                 <textarea class="border-2 p-2" name="comment" id="" cols="40" rows="5" placeholder="Message . . . . "><%=comments.comment%></textarea>
                 <input type="submit" class="block border-2 px-4 py-1 bg-blue-500 text-white rounded-md">
             </form>
